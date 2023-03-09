@@ -14,12 +14,8 @@ if (function_exists('acf_add_options_page')) {
     ));
 }
 
-add_filter('script_loader_tag', 'load_as_ES6', 10, 3);
+register_nav_menus(array(
+    'main-menu' => 'Menu Principal',
+));
 
-function load_as_ES6($tag, $handle, $source)
-{
-    if ('btg-script' === $handle) {
-        $tag = '<script src="' . $source . '" type="module" ></script>';
-    }
-    return $tag;
-};
+add_filter('show_admin_bar', '__return_false');

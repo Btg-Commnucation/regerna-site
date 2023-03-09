@@ -1,0 +1,45 @@
+.header {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  place-items: center;
+
+  .white {
+    background: white;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-inline: 2.8rem;
+
+    img {
+      max-height: 96.6px;
+      position: relative;
+      bottom: -24px;
+    }
+  }
+
+  .orange {
+    background: #ffb098;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 7.8rem;
+
+    ul {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
+
+    a {
+      font-size: 1.8rem;
+      color: #153d58;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+  }
+}
