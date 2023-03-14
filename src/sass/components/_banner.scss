@@ -1,0 +1,51 @@
+@use "../abstracts" as var;
+
+.hero-banner {
+  background-size: cover !important;
+  width: 100vw;
+  height: 392px;
+  position: relative;
+
+  .linear-gradient {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    margin: auto;
+    background: rgb(195, 208, 218);
+    background: linear-gradient(
+      90deg,
+      rgba(195, 208, 218, 1) 0%,
+      rgba(1, 66, 110, 1) 100%
+    );
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
+
+  .container {
+    max-width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2.2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  h1 {
+    color: white;
+    font-weight: 700;
+    font-family: var.$inter;
+    font-size: 4rem;
+    text-align: center;
+    font-size: calc(1.5rem + 1.3vw);
+  }
+}
+
+.decoration {
+  width: 49px;
+  height: 25px;
+}

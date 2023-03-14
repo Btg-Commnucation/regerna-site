@@ -7,6 +7,7 @@ import Article from "./components/Article";
 import "./sass/style.scss";
 import { Provider } from "react-redux";
 import store from "./app/store";
+import Page from "./components/Page";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/:slug",
+    element: <Page />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/blog/:slug",
     element: <Article />,
     errorElement: <ErrorPage />,
   },

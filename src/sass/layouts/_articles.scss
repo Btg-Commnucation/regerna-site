@@ -1,0 +1,41 @@
+@use "../abstracts" as var;
+
+.blog-articles {
+  padding-bottom: 16rem;
+
+  .container {
+    max-width: 65%;
+    margin: 0 auto;
+  }
+
+  h2 {
+    margin-top: 7rem;
+    font-size: 3.6rem;
+    font-size: calc(1.1rem + 1.3vw);
+  }
+
+  p {
+    font-size: 1.8rem;
+    margin-top: 2.1rem;
+  }
+
+  .wp-element-button {
+    border: 1px solid var.$text_blue;
+    border-radius: 9px;
+    padding: 1.1rem 2.4rem;
+    font-size: 1.8rem;
+    color: var.$text_blue;
+    font-weight: 400;
+    text-decoration: none;
+    margin-top: 6.2rem;
+    display: flow-root;
+    width: fit-content;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background: var.$text_blue;
+      color: white !important;
+    }
+  }
+}
