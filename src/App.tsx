@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
       <div>
         <h1>Regerna Site</h1>
       </div>
+      <Footer />
     </>
   );
 };
