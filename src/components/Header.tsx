@@ -61,7 +61,7 @@ const Header = () => {
             <ul ref={menuItems}>
               {data.menu.map((item, index) => (
                 <li key={index} className="menu-items">
-                  <Link to={`${item.slug}`}>{item.title}</Link>
+                  <Link to={`/${item.slug}`}>{item.title}</Link>
                 </li>
               ))}
             </ul>

@@ -1,0 +1,49 @@
+@use "../abstracts" as var;
+
+.template-home {
+  .categories {
+    margin-block: 7.1rem;
+  }
+
+  section.container {
+    max-width: 50%;
+    margin-inline: auto;
+  }
+
+  .article {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
+
+  .article h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var.$inter;
+    color: var.$text_blue;
+  }
+
+  .date {
+    margin-block: 1.5rem;
+    color: #717171;
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-decoration: underline;
+  }
+
+  .excerpt {
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-family: var.$inter;
+  }
+
+  .article-link {
+    color: #e30613;
+    font-size: 1.8rem;
+    text-align: right;
+    text-decoration: underline;
+    margin-top: 0.9rem;
+    align-self: end;
+  }
+}
