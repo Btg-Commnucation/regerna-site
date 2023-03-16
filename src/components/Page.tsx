@@ -1,6 +1,7 @@
 import ky from "ky";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Ambition from "./Ambition";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -31,7 +32,7 @@ const Page = () => {
     getPage
       .then((response) => setData(response.find((page) => page.slug === slug)))
       .then(() => setIsLoading(false));
-  }, []);
+  }, [slug]);
 
   return (
     <>
@@ -40,6 +41,7 @@ const Page = () => {
         <>
           {data!.template === "template-home" && <Home page={data!} />}
           {data!.template === "template-contact" && <Contact page={data!} />}
+          {data!.template === "template-ambition" && <Ambition page={data!} />}
         </>
       )}
       <Footer />

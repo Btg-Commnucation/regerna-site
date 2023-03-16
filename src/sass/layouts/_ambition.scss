@@ -1,0 +1,228 @@
+@use "../abstracts" as var;
+
+.ambition {
+  .container {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
+  .hero-banner {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.3rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var.$text_blue;
+  }
+
+  .hero-banner__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+  }
+
+  .description {
+    width: 100%;
+    background: var.$text_blue;
+    color: white;
+    border-radius: 7.7rem;
+    min-height: 193px;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .wordpress-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+
+    h2 {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  .expected-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-block: 8rem 3.6rem;
+
+    h3 {
+      background: var.$orange;
+      border-radius: 21px;
+      font-size: 3.6rem;
+      font-weight: 900;
+      font-style: italic;
+      text-align: left;
+      color: var.$text_blue;
+      padding: 0.3rem 1.1rem;
+      text-transform: uppercase;
+      text-shadow: 3px 3px #fff;
+      margin-bottom: 1.1rem;
+    }
+  }
+
+  .bordered-content {
+    border-radius: 7.7rem;
+    padding: 3rem 7.6rem;
+
+    &:not(:last-of-type) {
+      margin-bottom: 3.6rem;
+    }
+
+    h4 {
+      font-size: 3rem;
+      color: var.$text_blue;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      display: flow-root;
+
+      span {
+        color: var.$orange;
+        text-shadow: 3px 3px var.$text_blue;
+        font-style: italic;
+      }
+    }
+
+    p {
+      font-size: 1.8rem;
+      color: black;
+
+      &:not(:first-of-type) {
+        margin-top: 2rem;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin-left: 3rem;
+
+      li {
+        position: relative;
+
+        &::before {
+          content: "-";
+          margin-right: 0.5em;
+        }
+      }
+    }
+  }
+
+  .red-bg {
+    height: 203px;
+    background-size: cover;
+    position: relative;
+
+    .background-absolute {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: #ff7474;
+      opacity: 92%;
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 70%;
+      height: 100%;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    p {
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+    }
+  }
+
+  .impacts {
+    margin-block: 5.8rem 9.9rem;
+
+    .container {
+      max-width: 70%;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    h3 {
+      background: var.$orange;
+      border-radius: 21px;
+      font-size: 3.6rem;
+      font-weight: 900;
+      font-style: italic;
+      text-align: left;
+      color: var.$text_blue;
+      padding: 0.3rem 1.1rem;
+      text-transform: uppercase;
+      text-shadow: 3px 3px #fff;
+      margin-bottom: 1.6rem;
+      width: fit-content;
+    }
+
+    p {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-left: 9em;
+    }
+
+    .card-container {
+      margin-top: 3.7rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 2.4rem;
+      row-gap: 1.7rem;
+    }
+
+    .card {
+      border: 1px solid var.$text_blue;
+      border-radius: 13px;
+      padding: 2.9rem 1.9rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h4 {
+        margin-top: 2rem;
+        color: var.$text_blue;
+        font-size: 2.4rem;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 1.8rem;
+        color: black;
+        text-align: center;
+        margin: 0;
+      }
+    }
+  }
+}
