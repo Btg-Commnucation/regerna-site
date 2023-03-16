@@ -1,6 +1,7 @@
 import ky from "ky";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Contact from "./Contact";
 import Footer from "./Footer";
 import Header from "./Header";
 import Home from "./Home";
@@ -36,7 +37,10 @@ const Page = () => {
     <>
       <Header />
       {!isLoading && (
-        <>{data!.template === "template-home" && <Home page={data!} />}</>
+        <>
+          {data!.template === "template-home" && <Home page={data!} />}
+          {data!.template === "template-contact" && <Contact page={data!} />}
+        </>
       )}
       <Footer />
     </>

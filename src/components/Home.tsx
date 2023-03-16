@@ -11,6 +11,9 @@ const Home = ({ page }: { page: { [key: string]: any } }) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.articles);
   const [categories, setCategories] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [filteredArticles, setFilteredArticles] = useState<any>([]);
+  const [categoriesLoading, setCategoriesLoading] = useState<boolean>(true);
 
   const getArticles = new Promise(async (resolve, reject) => {
     try {
@@ -32,6 +35,8 @@ const Home = ({ page }: { page: { [key: string]: any } }) => {
         setCategories((categories) => [...categories, category]);
       });
     });
+    setCategories((categories) => [...new Set(categories)]);
+    setCategoriesLoading(false);
   };
 
   const setDate = (date: string): string => {
@@ -39,18 +44,38 @@ const Home = ({ page }: { page: { [key: string]: any } }) => {
     return newDate;
   };
 
+  const handleClick = (category: string) => {
+    setSelectedCategory(category);
+    if (category === "All") {
+      setFilteredArticles(data.articles);
+    } else {
+      const filteredArticles = data.articles.filter(
+        (article: { [key: string]: any }) =>
+          article.category_names.includes(category)
+      );
+      setFilteredArticles(filteredArticles);
+    }
+  };
+
   useEffect(() => {
     if (Object.keys(data).length === 0 && data.constructor === Object) {
       getArticles
-        .then((response: { [key: string]: any }[] | any) =>
-          dispatch(setArticles(response))
-        )
-        .then(() => data.articles && getCategories(data.articles))
+        .then((response: { [key: string]: any }[] | any) => {
+          setFilteredArticles(response);
+          return dispatch(setArticles(response));
+        })
         .then(() => setIsLoading(false));
     } else {
+      handleClick(selectedCategory);
       setIsLoading(false);
     }
   }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      getCategories(data.articles);
+    }
+  }, [isLoading]);
 
   return (
     <article className="template-home">
@@ -59,10 +84,27 @@ const Home = ({ page }: { page: { [key: string]: any } }) => {
         <section className="container">
           <div className="categories">
             <ul>
-              <li>All</li>
+              <li
+                className={selectedCategory === "All" ? "selected" : ""}
+                onClick={() => handleClick("All")}
+              >
+                All
+              </li>
+              {categoriesLoading ? (
+                <li>Loading...</li>
+              ) : (
+                categories.map((category: string, index: number) => (
+                  <li
+                    key={index}
+                    dangerouslySetInnerHTML={{ __html: category }}
+                    className={selectedCategory === category ? "selected" : ""}
+                    onClick={() => handleClick(category)}
+                  ></li>
+                ))
+              )}
             </ul>
           </div>
-          {data.articles.map((article: { [key: string]: any }) => (
+          {filteredArticles.map((article: { [key: string]: any }) => (
             <div key={article.id} className="article">
               <h2>{article.title}</h2>
               <p className="date">{setDate(article.date)}</p>

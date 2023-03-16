@@ -13,7 +13,15 @@ const Banner = ({
       <div className="linear-gradient"></div>
       <div className="container">
         <h1>{title}</h1>
-        <img src="/decoration.svg" alt={title} className="decoration" />
+        {title === "Contact" ? (
+          <img
+            src="/contact-decoration.svg"
+            alt={title}
+            className="decoration"
+          />
+        ) : (
+          <img src="/decoration.svg" alt={title} className="decoration" />
+        )}
       </div>
     </section>
   );
