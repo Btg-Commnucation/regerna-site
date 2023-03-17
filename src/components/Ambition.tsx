@@ -70,6 +70,19 @@ const Ambition = ({ page }: { page: { [key: string]: any } }) => {
           </div>
         </div>
       </section>
+      <section
+        className="blue-background"
+        style={{
+          background: `url(${page.acf.background_blue_image.url}) no-repeat left center`,
+        }}
+      >
+        <div className="container">
+          <h4>{page.acf.title_blue_background}</h4>
+          <p
+            dangerouslySetInnerHTML={{ __html: page.acf.text_blue_background }}
+          ></p>
+        </div>
+      </section>
     </article>
   );
 };
