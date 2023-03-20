@@ -76,6 +76,7 @@ const Ambition = ({ page }: { page: { [key: string]: any } }) => {
           background: `url(${page.acf.background_blue_image.url}) no-repeat left center`,
         }}
       >
+        <div className="background-absolute"></div>
         <div className="container">
           <h4>{page.acf.title_blue_background}</h4>
           <p

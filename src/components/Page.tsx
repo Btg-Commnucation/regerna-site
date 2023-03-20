@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Ambition from "./Ambition";
 import Contact from "./Contact";
+import Default from "./Default";
 import Footer from "./Footer";
 import Header from "./Header";
 import Home from "./Home";
@@ -42,6 +43,7 @@ const Page = () => {
           {data!.template === "template-home" && <Home page={data!} />}
           {data!.template === "template-contact" && <Contact page={data!} />}
           {data!.template === "template-ambition" && <Ambition page={data!} />}
+          {data!.template === "default" && <Default page={data!} />}
         </>
       )}
       <Footer />
