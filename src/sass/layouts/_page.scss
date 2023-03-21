@@ -1,0 +1,576 @@
+@use "../abstracts" as var;
+
+.page-default {
+  .container {
+    max-width: 70%;
+    margin: 0 auto;
+
+    @media screen and (max-width: 1400px) {
+      max-width: 90%;
+    }
+  }
+
+  .hero-banner {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.3rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var.$text_blue;
+  }
+
+  .hero-banner__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+
+    @media screen and (max-width: 732px) {
+      margin-top: 5rem;
+      img {
+        display: none;
+      }
+    }
+  }
+
+  .description {
+    width: 100%;
+    background: var.$text_blue;
+    color: white;
+    border-radius: 7.7rem;
+    min-height: 193px;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 7.6rem;
+    gap: 2rem;
+
+    @media screen and (max-width: 1000px) {
+      padding: 3.6rem;
+    }
+
+    p {
+      text-align: start !important;
+    }
+  }
+
+  .column-part {
+    margin-top: 7rem;
+    display: grid;
+    grid-template-columns: 1fr 0.6fr;
+    place-items: center;
+    gap: 4.5rem;
+
+    @media screen and (max-width: 1750px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 1150px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .left-part {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    row-gap: 5.7rem;
+    column-gap: 4.3rem;
+
+    @media screen and (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .first-element {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    background: var.$orange;
+    border-radius: 4.7rem;
+    padding-block: 3rem 5.1rem;
+    padding-inline: 3.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    color: white;
+
+    @media screen and (max-width: 900px) {
+      grid-column: 1;
+      width: 100%;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding-inline: 1rem;
+    }
+  }
+
+  h2 {
+    color: var.$text_blue;
+    font-size: 3.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    text-align: center;
+
+    @media screen and (max-width: 500px) {
+      font-size: 2.6rem;
+    }
+  }
+
+  p {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 0.9rem;
+  }
+
+  .second-element {
+    background: var.$orange;
+    border-radius: 4.7rem;
+    padding-block: 3rem 5.1rem;
+    padding-inline: 3.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    color: white;
+    height: 100%;
+    width: 100%;
+
+    @media screen and (max-width: 500px) {
+      padding-inline: 1rem;
+    }
+  }
+
+  .third-element {
+    background: var.$orange;
+    border-radius: 4.7rem;
+    padding-block: 3rem 5.1rem;
+    padding-inline: 3.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    color: white;
+    height: 100%;
+    width: 100%;
+
+    @media screen and (max-width: 500px) {
+      padding-inline: 1rem;
+    }
+
+    h2 {
+      text-transform: none;
+    }
+  }
+
+  .fourth-element {
+    grid-column: 1 / 3;
+    background: var.$orange;
+    border-radius: 4.7rem;
+    padding-block: 3rem 5.1rem;
+    padding-inline: 3.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    color: white;
+    width: fit-content;
+    max-width: 368px;
+
+    @media screen and (max-width: 900px) {
+      grid-column: 1;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding-inline: 1rem;
+    }
+  }
+
+  .right-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #f8f8f8;
+    border-radius: 4.7rem;
+    padding-inline: 3.5rem;
+
+    h3 {
+      font-size: 3.6rem;
+      font-weight: 700;
+      color: var.$text_blue;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .context {
+    margin-top: 4.5rem;
+    padding-block: 4.5rem 7.6rem;
+    position: relative;
+    background-size: cover !important;
+
+    .background-absolute {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: var.$text_blue;
+      opacity: 0.92;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+
+    h3 {
+      font-size: 3.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .context-content {
+      font-size: 1.8rem;
+
+      p {
+        margin-top: 2.9rem;
+        text-align: start;
+      }
+    }
+  }
+
+  .objectives {
+    margin-top: 5.3rem;
+
+    h2 {
+      margin-bottom: 3.1rem;
+    }
+
+    p {
+      text-align: start;
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-top: 3.1rem;
+      color: var.$text_blue;
+      margin-bottom: 4.6rem;
+    }
+
+    .objective-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      place-items: center;
+      list-style: none;
+      gap: 1.3rem;
+
+      @media screen and (max-width: 1177px) {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 3rem;
+      }
+
+      @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+
+      &:nth-of-type(odd) .objective-content {
+        background: var.$text_blue;
+      }
+
+      &:nth-of-type(even) .objective-content {
+        background: transparent;
+        border: 1px solid var.$orange;
+        color: black;
+      }
+    }
+
+    h4 {
+      font-size: 9rem;
+      font-weight: 700;
+      color: #e30613;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      line-height: 0.7;
+
+      &::after {
+        display: block;
+        content: "";
+        width: 15px;
+        height: 15px;
+        background-color: currentColor;
+        margin-left: 0.5rem;
+        border-radius: 50%;
+      }
+    }
+
+    .objective-content {
+      width: 100%;
+      margin-top: 0.5rem;
+      border-top-left-radius: 20px;
+      color: white;
+      font-size: 1.8rem;
+      height: 360px;
+      padding-inline: 2.6rem;
+      padding-top: 3.6rem;
+
+      @media screen and (max-width: 400px) {
+        height: auto;
+      }
+    }
+  }
+
+  .concept {
+    margin-top: 9.9rem;
+    position: relative;
+    padding-block: 5.4rem 8rem;
+    background-size: cover;
+
+    .background-absolute {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      background: var.$orange;
+      opacity: 81%;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    h3 {
+      font-size: 3.6rem;
+      color: var.$text_blue;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .concept-content {
+      color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      gap: 2rem;
+
+      p {
+        text-align: left;
+      }
+    }
+  }
+
+  .technical {
+    margin-block: 3rem 4rem;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h2 {
+      font-size: 3.6rem;
+      font-weight: 700;
+    }
+
+    p {
+      text-align: left;
+      font-size: 1.8rem;
+
+      &:not(.legend) {
+        margin-top: 4.8rem;
+      }
+    }
+
+    img {
+      margin-top: 5.4rem;
+    }
+
+    .legend {
+      margin-top: 1rem;
+    }
+  }
+
+  .methodology {
+    background-size: cover !important;
+    position: relative;
+    padding-block: 5.9rem 2.7rem;
+    color: white;
+
+    .background-absolute {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      background: var.$text_blue;
+      opacity: 92%;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    h3 {
+      font-size: 3.6rem;
+      font-weight: 700;
+      margin-bottom: 5rem;
+      text-transform: uppercase;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      gap: 2rem;
+      margin-left: 3rem;
+
+      p {
+        text-align: left;
+      }
+
+      ol {
+        margin-left: 3rem;
+
+        @media screen and (max-width: 700px) {
+          margin-left: 0;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    margin-block: 5rem 5.9rem;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h3 {
+      font-size: 3.6rem;
+      font-weight: 700;
+      margin-bottom: 2.9rem;
+      color: var.$text_blue;
+      text-align: center;
+    }
+  }
+
+  .red-part {
+    background: #ff7474;
+    padding: 5rem 6.8rem;
+    border-radius: 7.6rem;
+    margin-bottom: 7rem;
+
+    @media screen and (max-width: 700px) {
+      padding: 5rem 1rem;
+    }
+
+    div {
+      color: var.$text_blue;
+
+      p {
+        font-size: 1.8rem;
+        text-align: left;
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+
+        li {
+          font-size: 1.8rem;
+          margin-left: 3rem;
+          display: flex;
+
+          @media screen and (max-width: 700px) {
+            margin-left: 0;
+          }
+
+          &::before {
+            content: "-";
+            margin-right: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+
+  .other-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+      max-width: 1091px;
+      margin: 0 auto;
+    }
+  }
+}
