@@ -7,6 +7,7 @@ import Default from "./Default";
 import Footer from "./Footer";
 import Header from "./Header";
 import Home from "./Home";
+import Partners from "./Partners";
 
 const Page = () => {
   const { slug } = useParams();
@@ -44,6 +45,7 @@ const Page = () => {
           {data!.template === "template-contact" && <Contact page={data!} />}
           {data!.template === "template-ambition" && <Ambition page={data!} />}
           {data!.template === "default" && <Default page={data!} />}
+          {data!.template === "template-partners" && <Partners page={data!} />}
         </>
       )}
       <Footer />
