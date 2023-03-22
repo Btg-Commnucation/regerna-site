@@ -62,3 +62,53 @@
     text-align: center;
   }
 }
+
+.instituts {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+  }
+
+  .institut-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .institut-description {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    justify-items: center;
+    align-items: start;
+
+    img {
+      max-width: 211px;
+    }
+
+    h3 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var.$text_blue;
+    }
+
+    .description-institut {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      gap: 2.1rem;
+
+      p {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  .partners {
+    position: relative;
+  }
+}
