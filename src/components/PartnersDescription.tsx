@@ -4,7 +4,7 @@ const PartnersDescription = ({
   partner: { [key: string]: any };
 }) => {
   return (
-    <div>
+    <>
       <div className="picture-container">
         <img src={partner.picture.url} alt={partner.picture.alt} />
         <p>{partner.name}</p>
@@ -13,7 +13,7 @@ const PartnersDescription = ({
         className="content"
         dangerouslySetInnerHTML={{ __html: partner.text }}
       ></div>
-    </div>
+    </>
   );
 };
 

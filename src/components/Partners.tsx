@@ -1,7 +1,56 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 import PartnersDescription from "./PartnersDescription";
 
 const Partners = ({ page }: { page: { [key: string]: any } }) => {
+  const institutRef = useRef<HTMLDivElement[]>([]);
+
+  const handleClick = (institutIndex: number, index: number) => {
+    const partners =
+      institutRef.current[institutIndex].querySelectorAll(".partner");
+    console.log(partners);
+    partners.forEach((partner) => {
+      partner.classList.remove("active");
+    });
+    partners[index].classList.add("active");
+  };
+
+  const handleShow = (
+    event: React.FormEvent,
+    className: string,
+    institutIndex: number
+  ) => {
+    event.target.classList.toggle("active");
+    const popup = institutRef.current[institutIndex].querySelector(".popup");
+    const element = institutRef.current[institutIndex].querySelector(
+      `.${className}`
+    );
+    if (popup && !popup.classList.contains(className)) {
+      popup.classList.remove("active");
+    }
+    if (element) {
+      element.classList.toggle("active");
+    }
+  };
+
+  useEffect(() => {
+    const pop = document.querySelectorAll(".popup");
+    pop.forEach((p) => {
+      p.classList.remove("active");
+    });
+    const partners = institutRef.current.reduce((acc, institut) => {
+      const partnerNodes = institut.querySelectorAll(".partner");
+      return [...acc, ...Array.from(partnerNodes)];
+    }, []);
+    partners.forEach((partner) => {
+      partner.classList.remove("active");
+    });
+
+    institutRef.current.forEach((institut) => {
+      const partn = institut.querySelectorAll(".partner");
+      partn[0].classList.add("active");
+    });
+  }, []);
+
   return (
     <article className="partners">
       <div className="container">
@@ -28,8 +77,12 @@ const Partners = ({ page }: { page: { [key: string]: any } }) => {
       <section className="instituts">
         <div className="container">
           {page.acf.institut.map(
-            (institut: { [key: string]: any }, index: number) => (
-              <div className="institut-container" key={index}>
+            (institut: { [key: string]: any }, institutIndex: number) => (
+              <div
+                className="institut-container"
+                key={`institut-${institutIndex}`}
+                ref={(el) => (institutRef.current[institutIndex] = el)}
+              >
                 <div className="institut-description">
                   <img src={institut.image.url} alt={institut.image.alt} />
                   <div className="description-institut">
@@ -40,27 +93,47 @@ const Partners = ({ page }: { page: { [key: string]: any } }) => {
                   </div>
                 </div>
                 <div className="partners">
+                  <div className="role-list--container">
+                    {institut.leader.map(
+                      (partner: { [key: string]: any }, roleIndex: number) => (
+                        <button
+                          className="role"
+                          key={partner.name}
+                          onClick={() => handleClick(institutIndex, roleIndex)}
+                        >
+                          {partner.post}
+                        </button>
+                      )
+                    )}
+                  </div>
                   {institut.leader.map(
-                    (partner: { [key: string]: any }, index: number) => (
-                      <div className="partner" key={index}>
-                        <button className="role">{partner.post}</button>
+                    (partner: { [key: string]: any }, i: number) => (
+                      <div className="partner" key={`partner-${i}`}>
                         <PartnersDescription partner={partner} />
                       </div>
                     )
                   )}
                 </div>
-                <div className="button">
-                  <button>Research team</button>
-                  <button>Involvement by work package</button>
+                <div className="buttons">
+                  <button
+                    onClick={(e) => handleShow(e, "research", institutIndex)}
+                  >
+                    Research team <div className="arrow"></div>
+                  </button>
+                  <button
+                    onClick={(e) => handleShow(e, "involvement", institutIndex)}
+                  >
+                    Involvement by work package <div className="arrow"></div>
+                  </button>
                 </div>
                 <div
-                  className="research"
+                  className="research popup"
                   dangerouslySetInnerHTML={{
                     __html: institut.research_team_description,
                   }}
                 ></div>
                 <div
-                  className="involvement"
+                  className="involvement popup"
                   dangerouslySetInnerHTML={{
                     __html: institut.involvement_by_work_package,
                   }}
