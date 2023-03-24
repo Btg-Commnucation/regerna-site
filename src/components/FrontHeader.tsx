@@ -1,25 +1,24 @@
-import { useEffect, useRef, useState } from "react";
-import logo from "/src/assets/regerna-logo.svg";
-import headerImage from "/src/assets/header-image.svg";
 import ky from "ky";
-import { Link } from "react-router-dom";
+import headerImage from "/src/assets/header-image.svg";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { setMenu } from "../feature/menu.slice";
 
 type Response = { [key: string]: any };
 
-const Header = () => {
+const FrontHeader = () => {
   const dispatch = useDispatch();
   const data: { menu: Response[] } = useSelector(
     (state: { [key: string]: any }) => state.menu
   );
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
-  const menuItems = useRef<HTMLUListElement | null>();
+  const menuItems = useRef<HTMLUListElement>();
 
   const isExternal = (url: string) => {
-    const regex = /^(https?:\/\/)|^(www\.)/i;
-    return regex.test(url);
+    const regepx = /^(https?:\/\/)|^(www\.)/i;
+    return regepx.test(url);
   };
 
   const NavigationItem = (lien: { [key: string]: string }) => {
@@ -67,33 +66,43 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="header">
+    <header className="front-header">
       {!isLoading && (
         <>
-          <div className="white">
-            <h1>
+          <section className="top">
+            <div className="logo-container">
               <img
-                src={logo}
-                alt="Logo marqué Regerna en bleu foncé avec le second e souligné en rouge"
+                src="/regerna-logo-fat.svg"
+                alt="Regerna, Leveraging the heart's natural regeneration mechanisms for treating heart failure"
               />
-            </h1>
-          </div>
-          <nav className="orange">
-            <ul ref={menuItems}>
-              {data.menu.map((item, index) => (
-                <li key={index} className="menu-items">
-                  {NavigationItem(item)}
-                </li>
-              ))}
-            </ul>
-            <div className="burger-items" onClick={handleMenu}>
-              <img src={headerImage} alt="Regerna" className="header-image" />
             </div>
-          </nav>
+            <div className="slogan-container">
+              <h1>
+                Leveraging the heart's natural regeneration mechanisms for
+                treating heart failure
+              </h1>
+              <img src="/contact-decoration.svg" alt="" />
+            </div>
+          </section>
+          <section className="menu">
+            <div className="white"></div>
+            <nav className="orange">
+              <ul ref={menuItems}>
+                {data.menu.map((item, index) => (
+                  <li key={index} className="menu-items">
+                    {NavigationItem(item)}
+                  </li>
+                ))}
+              </ul>
+              <div className="burger-items" onClick={handleMenu}>
+                <img src={headerImage} alt="Regerna" className="header-image" />
+              </div>
+            </nav>
+          </section>
         </>
       )}
     </header>
   );
 };
 
-export default Header;
+export default FrontHeader;

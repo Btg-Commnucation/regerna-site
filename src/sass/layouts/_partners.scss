@@ -60,6 +60,12 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding-inline: 8.6rem;
+
+    @media screen and (max-width: 1000px) {
+      padding-block: 2rem;
+      padding-inline: 2.6rem;
+    }
   }
 }
 
@@ -79,6 +85,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
 
   .institut-description {
@@ -86,6 +93,10 @@
     grid-template-columns: 0.2fr 1fr;
     justify-items: center;
     align-items: start;
+
+    @media screen and (max-width: 1000px) {
+      grid-template-columns: 1fr;
+    }
 
     img {
       max-width: 211px;
@@ -120,15 +131,22 @@
     align-items: start;
     padding: 4.1rem 4.7rem;
 
+    @media screen and (max-width: 700px) {
+      padding-inline: 2rem;
+    }
+
     .role-list--container {
       margin-left: 3.7rem;
       position: absolute;
       top: -5%;
-      width: 100%;
       display: flex;
       justify-content: start;
       align-items: center;
       gap: 1.8rem;
+
+      @media screen and (max-width: 1119px) {
+        top: -3%;
+      }
 
       button {
         color: #e30613;
@@ -151,10 +169,16 @@
 
     .partner {
       display: none;
-      grid-template-columns: 0.16fr 1fr;
+      grid-template-columns: 155px 1fr;
       gap: 5.7rem;
       justify-items: center;
       align-items: start;
+
+      @media screen and (max-width: 1000px) {
+        grid-template-columns: 1fr;
+        gap: 2.3rem;
+        align-items: center;
+      }
 
       &.active {
         display: grid;
@@ -198,6 +222,12 @@
     width: 100%;
     margin-top: 0.3rem;
     height: 91px;
+
+    @media screen and (max-width: 700px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 91px);
+      height: auto;
+    }
 
     button {
       background: var.$text_blue;

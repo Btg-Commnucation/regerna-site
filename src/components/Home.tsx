@@ -9,7 +9,7 @@ import moment from "moment";
 const Home = ({ page }: { page: { [key: string]: any } }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.articles);
+  const data = useSelector((state: { [key: string]: any }) => state.articles);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [filteredArticles, setFilteredArticles] = useState<any>([]);

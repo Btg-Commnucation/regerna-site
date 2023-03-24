@@ -1,0 +1,257 @@
+@use "../abstracts" as var;
+
+.front-page {
+  .container {
+    max-width: 75%;
+    margin: 0 auto;
+
+    @media screen and (max-width: 1000px) {
+      max-width: 95%;
+    }
+  }
+}
+
+.in-numbers {
+  width: 100%;
+  background: var.$text_blue;
+  padding-block: 4.9rem;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7.4rem;
+  }
+
+  h2 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    align-self: start;
+  }
+
+  .numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      width: 193px;
+      height: 193px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .separator {
+      width: 22px;
+      height: 4px;
+      background: white;
+      border-radius: 4px;
+      margin-inline: 2.7rem;
+
+      &:last-child {
+        display: none;
+      }
+    }
+
+    strong {
+      font-size: 5.6rem;
+      color: #e30613;
+      text-align: center;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    p {
+      font-size: 2.8rem;
+      color: var.$text_blue;
+      text-align: center;
+      font-weight: 700;
+      line-height: 1;
+    }
+  }
+}
+
+.introduction {
+  position: relative;
+  padding-block: 4.9rem;
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 35%;
+    top: 0;
+    background: var.$text_blue;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.7rem;
+  }
+
+  h2 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .content-container {
+    background: var.$orange;
+    max-width: 954px;
+    border-radius: 77px;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    place-items: center;
+    position: relative;
+    padding: 6.5rem 4.4rem;
+
+    img {
+      position: absolute;
+      left: -18%;
+      top: -17%;
+    }
+  }
+
+  .content {
+    font-size: 1.8rem;
+    grid-column: 2;
+
+    p {
+      margin-top: 2rem;
+    }
+  }
+}
+
+.front-page .objectives {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  h2 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var.$text_blue;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    gap: 1.3rem;
+  }
+
+  h3 {
+    color: #e30613;
+    font-size: 9rem;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: currentColor;
+      border-radius: 50%;
+      margin-bottom: 1.2rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .content {
+    min-height: 360px;
+    font-size: 1.8rem;
+    text-align: left;
+    border-top-left-radius: 20px;
+    padding: 3.2rem 2.6rem;
+  }
+
+  li {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &:nth-of-type(odd) .content {
+      background: var.$text_blue;
+      border: 1px solid var.$text_blue;
+      color: white;
+    }
+
+    &:nth-of-type(even) .content {
+      border: 1px solid var.$orange;
+      color: var.$text_blue;
+      color: black;
+    }
+  }
+}
+
+.front-page .partners {
+  margin-top: 8.7rem;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: var.$orange;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 6.3rem;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6.7rem;
+    place-items: center;
+
+    li,
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .button {
+    margin-top: 4.3rem;
+    border: 1px solid var.$text_blue;
+    border-radius: 9px;
+    font-size: 1.8rem;
+    color: var.$text_blue;
+    padding: 1.1rem 2.5rem;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      background: var.$text_blue;
+      color: white;
+    }
+  }
+}
