@@ -11,7 +11,7 @@ const Footer = () => {
   const getFooter = new Promise(async (resolve, reject) => {
     try {
       const response = await ky("better-rest-endpoints/v1/options/acf", {
-        prefixUrl: "https://regerna.test/wp-json/",
+        prefixUrl: "https://regerna.eu/wp-json/",
       }).json();
       resolve(response);
     } catch (error) {

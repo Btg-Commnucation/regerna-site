@@ -10,7 +10,7 @@ import Banner from "./Banner";
 const Article = () => {
   const { slug } = useParams();
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.articles);
+  const data = useSelector((state: { [key: string]: any }) => state.articles);
   const [currentArticle, setCurrentArticle] = useState<{
     [key: string]: any;
   }>();
@@ -20,7 +20,7 @@ const Article = () => {
   const getArticles = new Promise(async (resolve, reject) => {
     try {
       const response = await ky("better-rest-endpoints/v1/posts", {
-        prefixUrl: "https://regerna.test/wp-json/",
+        prefixUrl: "https://regerna.eu/wp-json/",
       }).json();
       resolve(response);
     } catch (error) {
@@ -53,7 +53,7 @@ const Article = () => {
   return (
     <>
       <Header />
-      {loadComplete && (
+      {loadComplete ? (
         <article className="blog-articles">
           <Banner
             image={currentArticle!.acf.banner_background}
@@ -63,6 +63,14 @@ const Article = () => {
             className="container"
             dangerouslySetInnerHTML={{ __html: currentArticle!.content }}
           ></div>
+        </article>
+      ) : (
+        <article className="blog-articles">
+          <Banner
+            image={{ url: "/public/banner-img-scaled.jpg", alt: "Loading ..." }}
+            title="Loading ..."
+          />
+          <div className="container">Loading ...</div>
         </article>
       )}
       <Footer />

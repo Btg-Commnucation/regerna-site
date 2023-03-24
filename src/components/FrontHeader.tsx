@@ -22,7 +22,7 @@ const FrontHeader = () => {
   };
 
   const NavigationItem = (lien: { [key: string]: string }) => {
-    if (lien.slug === "regerna.test") {
+    if (lien.slug === "regerna.eu") {
       return <Link to={`/`}>{lien.title}</Link>;
     } else if (isExternal(lien.slug)) {
       return (
@@ -40,7 +40,7 @@ const FrontHeader = () => {
       const response: Response[] = await ky(
         "better-rest-endpoints/v1/menus/menu-1",
         {
-          prefixUrl: "https://regerna.test/wp-json/",
+          prefixUrl: "https://regerna.eu/wp-json/",
         }
       ).json();
       resolve(response);
@@ -67,7 +67,7 @@ const FrontHeader = () => {
 
   return (
     <header className="front-header">
-      {!isLoading && (
+      {!isLoading ? (
         <>
           <section className="top">
             <div className="logo-container">
@@ -91,6 +91,39 @@ const FrontHeader = () => {
                 {data.menu.map((item, index) => (
                   <li key={index} className="menu-items">
                     {NavigationItem(item)}
+                  </li>
+                ))}
+              </ul>
+              <div className="burger-items" onClick={handleMenu}>
+                <img src={headerImage} alt="Regerna" className="header-image" />
+              </div>
+            </nav>
+          </section>
+        </>
+      ) : (
+        <>
+          <section className="top">
+            <div className="logo-container">
+              <img
+                src="/regerna-logo-fat.svg"
+                alt="Regerna, Leveraging the heart's natural regeneration mechanisms for treating heart failure"
+              />
+            </div>
+            <div className="slogan-container">
+              <h1>
+                Leveraging the heart's natural regeneration mechanisms for
+                treating heart failure
+              </h1>
+              <img src="/contact-decoration.svg" alt="" />
+            </div>
+          </section>
+          <section className="menu">
+            <div className="white"></div>
+            <nav className="orange">
+              <ul ref={menuItems}>
+                {Array.from({ length: 7 }).map((item, index) => (
+                  <li key={index} className="menu-items">
+                    <a href="#">Loading...</a>
                   </li>
                 ))}
               </ul>

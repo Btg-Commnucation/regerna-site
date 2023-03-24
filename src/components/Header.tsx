@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   const NavigationItem = (lien: { [key: string]: string }) => {
-    if (lien.slug === "regerna.test") {
+    if (lien.slug === "regerna.eu") {
       return <Link to={`/`}>{lien.title}</Link>;
     } else if (isExternal(lien.slug)) {
       return (
@@ -41,7 +41,7 @@ const Header = () => {
       const response: Response[] = await ky(
         "better-rest-endpoints/v1/menus/menu-1",
         {
-          prefixUrl: "https://regerna.test/wp-json/",
+          prefixUrl: "https://regerna.eu/wp-json/",
         }
       ).json();
       resolve(response);
@@ -68,7 +68,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      {!isLoading && (
+      {!isLoading ? (
         <>
           <div className="white">
             <h1>
@@ -83,6 +83,31 @@ const Header = () => {
               {data.menu.map((item, index) => (
                 <li key={index} className="menu-items">
                   {NavigationItem(item)}
+                </li>
+              ))}
+            </ul>
+            <div className="burger-items" onClick={handleMenu}>
+              <img src={headerImage} alt="Regerna" className="header-image" />
+            </div>
+          </nav>
+        </>
+      ) : (
+        <>
+          <div className="white">
+            <h1>
+              <img
+                src={logo}
+                alt="Logo marqué Regerna en bleu foncé avec le second e souligné en rouge"
+              />
+            </h1>
+          </div>
+          <nav className="orange">
+            <ul ref={menuItems}>
+              {Array.from({ length: 7 }).map((item, index) => (
+                <li key={index} className="menu-items">
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    Loading...
+                  </a>
                 </li>
               ))}
             </ul>

@@ -20,7 +20,7 @@ const Home = ({ page }: { page: { [key: string]: any } }) => {
       const response: { [key: string]: any }[] = await ky(
         "better-rest-endpoints/v1/posts",
         {
-          prefixUrl: "https://regerna.test/wp-json/",
+          prefixUrl: "https://regerna.eu/wp-json/",
         }
       ).json();
       resolve(response);
