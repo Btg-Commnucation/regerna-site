@@ -1,5 +1,3 @@
-import React from "react";
-
 const Ambition = ({ page }: { page: { [key: string]: any } }) => {
   return (
     <article className="ambition">

@@ -19,7 +19,8 @@ const Partners = ({ page }: { page: { [key: string]: any } }) => {
     className: string,
     institutIndex: number
   ) => {
-    event.target.classList.toggle("active");
+    const target = event.target as HTMLElement;
+    target.classList.toggle("active");
     const popup = institutRef.current[institutIndex].querySelector(".popup");
     const element = institutRef.current[institutIndex].querySelector(
       `.${className}`
@@ -37,7 +38,7 @@ const Partners = ({ page }: { page: { [key: string]: any } }) => {
     pop.forEach((p) => {
       p.classList.remove("active");
     });
-    const partners = institutRef.current.reduce((acc, institut) => {
+    const partners = institutRef.current.reduce<Element[]>((acc, institut) => {
       const partnerNodes = institut.querySelectorAll(".partner");
       return [...acc, ...Array.from(partnerNodes)];
     }, []);
@@ -81,7 +82,11 @@ const Partners = ({ page }: { page: { [key: string]: any } }) => {
               <div
                 className="institut-container"
                 key={`institut-${institutIndex}`}
-                ref={(el) => (institutRef.current[institutIndex] = el)}
+                ref={(el) => {
+                  if (el !== null) {
+                    institutRef.current[institutIndex] = el;
+                  }
+                }}
               >
                 <div className="institut-description">
                   <img src={institut.image.url} alt={institut.image.alt} />

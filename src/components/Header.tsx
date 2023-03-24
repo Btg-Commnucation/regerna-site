@@ -15,7 +15,7 @@ const Header = () => {
   );
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
-  const menuItems = useRef<HTMLUListElement | null>();
+  const menuItems = useRef<HTMLUListElement | null>(null);
 
   const isExternal = (url: string) => {
     const regex = /^(https?:\/\/)|^(www\.)/i;

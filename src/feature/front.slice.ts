@@ -4,7 +4,7 @@ export const frontSlice = createSlice({
     name: "Front",
     initialState: {},
     reducers: {
-        setfront: (state, action) => {
+        setfront: (state: { [key: string]: any }, action) => {
             state.front = action.payload
         }
     }

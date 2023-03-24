@@ -5,7 +5,7 @@ import { setFooter } from "../feature/footer.slice";
 
 const Footer = () => {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.footer);
+  const data = useSelector((state: { [key: string]: any }) => state.footer);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const getFooter = new Promise(async (resolve, reject) => {

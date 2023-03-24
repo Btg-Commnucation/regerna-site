@@ -14,7 +14,7 @@ const FrontHeader = () => {
   );
   const [isLoading, setIsLoading] = useState(true);
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
-  const menuItems = useRef<HTMLUListElement>();
+  const menuItems = useRef<HTMLUListElement | null>(null);
 
   const isExternal = (url: string) => {
     const regepx = /^(https?:\/\/)|^(www\.)/i;

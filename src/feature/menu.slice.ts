@@ -4,7 +4,7 @@ export const menuSlice = createSlice({
   name: "Menu",
   initialState: {},
   reducers: {
-    setMenu: (state, action) => {
+    setMenu: (state: { [key: string]: any }, action) => {
       state.menu = action.payload;
     },
   },

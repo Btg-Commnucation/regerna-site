@@ -4,7 +4,7 @@ export const footerSlice = createSlice({
     name: "Footer",
     initialState: {},
     reducers: {
-        setFooter: (state, action) => {
+        setFooter: (state: { [key: string]: any }, action) => {
             state.footer = action.payload
         }
     }

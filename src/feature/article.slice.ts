@@ -4,7 +4,7 @@ export const articlesSlice = createSlice({
     name: "Articles",
     initialState: {},
     reducers: {
-        setArticles: (state, action) => {
+        setArticles: (state: { [key: string]: any }, action) => {
             state.articles = action.payload
         }
     }
