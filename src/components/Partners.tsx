@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import ImageMap from "./ImageMap";
 import PartnersDescription from "./PartnersDescription";
 
 const Partners = ({ page }: { page: { [key: string]: any } }) => {
@@ -21,6 +22,14 @@ const Partners = ({ page }: { page: { [key: string]: any } }) => {
   ) => {
     const target = event.target as HTMLElement;
     target.classList.toggle("active");
+    if( className === 'research' ) {
+      const involvement = institutRef.current[institutIndex].querySelector(".involvement");
+      involvement?.classList.remove("active");
+    } 
+    if( className === 'involvement' ) {
+      const research = institutRef.current[institutIndex].querySelector(".research");
+      research?.classList.remove("active");
+    }
     const popup = institutRef.current[institutIndex].querySelector(".popup");
     const element = institutRef.current[institutIndex].querySelector(
       `.${className}`
@@ -73,7 +82,7 @@ const Partners = ({ page }: { page: { [key: string]: any } }) => {
         </section>
       </div>
       <section className="image-map-pro">
-        <h2>--- A faire ---</h2>
+        <ImageMap />
       </section>
       <section className="instituts">
         <div className="container">

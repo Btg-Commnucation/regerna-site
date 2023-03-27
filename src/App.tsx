@@ -162,7 +162,7 @@ const App = () => {
                   )
                 )}
               </ul>
-              <Link to="/partners" className="button">
+              <Link to="/project-partners" className="button">
                 All partners
               </Link>
             </div>
