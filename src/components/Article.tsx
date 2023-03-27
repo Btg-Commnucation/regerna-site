@@ -1,5 +1,5 @@
 import ky from "ky";
-import { useParams } from "react-router-dom";
+import { ScrollRestoration, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setArticles } from "../feature/article.slice";
 import { useEffect, useState } from "react";
@@ -52,6 +52,7 @@ const Article = () => {
 
   return (
     <>
+    <ScrollRestoration />
       <Header />
       {loadComplete ? (
         <article className="blog-articles">

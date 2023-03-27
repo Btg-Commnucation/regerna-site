@@ -72,10 +72,12 @@ const Header = () => {
         <>
           <div className="white">
             <h1>
-              <img
-                src={logo}
-                alt="Logo marqué Regerna en bleu foncé avec le second e souligné en rouge"
-              />
+              <Link to="/">
+                <img
+                  src={logo}
+                  alt="Logo marqué Regerna en bleu foncé avec le second e souligné en rouge"
+                />
+              </Link>
             </h1>
           </div>
           <nav className="orange">
@@ -87,7 +89,15 @@ const Header = () => {
               ))}
             </ul>
             <div className="burger-items" onClick={handleMenu}>
-              <img src={headerImage} alt="Regerna" className="header-image" />
+              {screenWidth <= 1000 ? (
+                <img
+                  src="/menu.svg"
+                  alt="Menu Responsive"
+                  className="menu-responsive"
+                />
+              ) : (
+                <img src={headerImage} alt="Regerna" className="header-image" />
+              )}
             </div>
           </nav>
         </>
@@ -112,7 +122,15 @@ const Header = () => {
               ))}
             </ul>
             <div className="burger-items" onClick={handleMenu}>
-              <img src={headerImage} alt="Regerna" className="header-image" />
+              {screenWidth <= 1000 ? (
+                <img
+                  src="/menu.svg"
+                  alt="Menu Responsive"
+                  className="menu-responsive"
+                />
+              ) : (
+                <img src={headerImage} alt="Regerna" className="header-image" />
+              )}
             </div>
           </nav>
         </>

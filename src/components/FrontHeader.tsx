@@ -71,10 +71,12 @@ const FrontHeader = () => {
         <>
           <section className="top">
             <div className="logo-container">
-              <img
-                src="/regerna-logo-fat.svg"
-                alt="Regerna, Leveraging the heart's natural regeneration mechanisms for treating heart failure"
-              />
+              <Link to="/">
+                <img
+                  src="/regerna-logo-fat.svg"
+                  alt="Regerna, Leveraging the heart's natural regeneration mechanisms for treating heart failure"
+                />
+              </Link>
             </div>
             <div className="slogan-container">
               <h1>
@@ -95,7 +97,15 @@ const FrontHeader = () => {
                 ))}
               </ul>
               <div className="burger-items" onClick={handleMenu}>
-                <img src={headerImage} alt="Regerna" className="header-image" />
+                {screenWidth <= 1000 ? (
+                  <img src="/menu.svg" alt="Menu Responsive" className="menu-responsive" />
+                ) : (
+                  <img
+                    src={headerImage}
+                    alt="Regerna"
+                    className="header-image"
+                  />
+                )}
               </div>
             </nav>
           </section>
@@ -128,7 +138,15 @@ const FrontHeader = () => {
                 ))}
               </ul>
               <div className="burger-items" onClick={handleMenu}>
-                <img src={headerImage} alt="Regerna" className="header-image" />
+                {screenWidth <= 1000 ? (
+                  <img src="/menu.svg" alt="Menu Responsive" />
+                ) : (
+                  <img
+                    src={headerImage}
+                    alt="Regerna"
+                    className="header-image"
+                  />
+                )}
               </div>
             </nav>
           </section>

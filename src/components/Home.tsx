@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Banner from "./Banner";
 import { setArticles } from "../feature/article.slice";
-import { Link } from "react-router-dom";
+import { Link, ScrollRestoration } from "react-router-dom";
 import moment from "moment";
 
 const Home = ({ page }: { page: { [key: string]: any } }) => {
@@ -78,48 +78,53 @@ const Home = ({ page }: { page: { [key: string]: any } }) => {
   }, [isLoading]);
 
   return (
-    <article className="template-home">
-      <Banner image={page!.acf.banner_background} title={page!.title} />
-      {!isLoading && (
-        <section className="container">
-          <div className="categories">
-            <ul>
-              <li
-                className={selectedCategory === "All" ? "selected" : ""}
-                onClick={() => handleClick("All")}
-              >
-                All
-              </li>
-              {categoriesLoading ? (
-                <li>Loading...</li>
-              ) : (
-                categories.map((category: string, index: number) => (
-                  <li
-                    key={index}
-                    dangerouslySetInnerHTML={{ __html: category }}
-                    className={selectedCategory === category ? "selected" : ""}
-                    onClick={() => handleClick(category)}
-                  ></li>
-                ))
-              )}
-            </ul>
-          </div>
-          {filteredArticles.map((article: { [key: string]: any }) => (
-            <div key={article.id} className="article">
-              <h2>{article.title}</h2>
-              <p className="date">{setDate(article.date)}</p>
-              <div
-                dangerouslySetInnerHTML={{ __html: article.excerpt }}
-                className="excerpt"
-              ></div>
-              <Link to={`/news/${article.slug}`} className="article-link">
-                Read more
-              </Link>
+    <>
+      <ScrollRestoration />
+      <article className="template-home">
+        <Banner image={page!.acf.banner_background} title={page!.title} />
+        {!isLoading && (
+          <section className="container">
+            <div className="categories">
+              <ul>
+                <li
+                  className={selectedCategory === "All" ? "selected" : ""}
+                  onClick={() => handleClick("All")}
+                >
+                  All
+                </li>
+                {categoriesLoading ? (
+                  <li>Loading...</li>
+                ) : (
+                  categories.map((category: string, index: number) => (
+                    <li
+                      key={index}
+                      dangerouslySetInnerHTML={{ __html: category }}
+                      className={
+                        selectedCategory === category ? "selected" : ""
+                      }
+                      onClick={() => handleClick(category)}
+                    ></li>
+                  ))
+                )}
+              </ul>
             </div>
-          ))}
-        </section>
-      )}
-    </article>
+            {filteredArticles.map((article: { [key: string]: any }) => (
+              <div key={article.id} className="article">
+                <h2>{article.title}</h2>
+                <p className="date">{setDate(article.date)}</p>
+                <div
+                  dangerouslySetInnerHTML={{ __html: article.excerpt }}
+                  className="excerpt"
+                ></div>
+                <Link to={`/news/${article.slug}`} className="article-link">
+                  Read more
+                </Link>
+              </div>
+            ))}
+          </section>
+        )}
+      </article>
+    </>
   );
 };
 

@@ -12,7 +12,7 @@
 
 .hero-banner {
   background-size: cover !important;
-  width: 100vw;
+  width: 100%;
   height: 392px;
   position: relative;
 
@@ -51,8 +51,11 @@
     font-family: var.$inter;
     font-size: 4rem;
     text-align: center;
-    font-size: calc(1.5rem + 1.3vw);
     text-transform: uppercase;
+
+    @media screen and (max-width: 1000px) {
+      font-size: 3rem;
+    }
   }
 }
 

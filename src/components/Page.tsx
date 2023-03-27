@@ -1,6 +1,6 @@
 import ky from "ky";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { ScrollRestoration, useParams } from "react-router-dom";
 import Ambition from "./Ambition";
 import Contact from "./Contact";
 import Default from "./Default";
@@ -38,6 +38,7 @@ const Page = () => {
 
   return (
     <>
+      <ScrollRestoration />
       <Header />
       {!isLoading ? (
         <>
