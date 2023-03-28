@@ -1,0 +1,27 @@
+@use '../abstracts' as var;
+
+.legals {
+    margin-block: 4rem;
+
+    .container {
+        max-width: 70%;
+        margin: 0 auto;
+
+        @media screen and (max-width: 1000px) {
+            max-width: 90%;
+        }
+    }
+
+    h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        color: var.$text_blue;
+        text-align: center;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 1.8rem;
+    }
+}

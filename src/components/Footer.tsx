@@ -1,6 +1,7 @@
 import ky from "ky";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { setFooter } from "../feature/footer.slice";
 
 const Footer = () => {
@@ -18,6 +19,10 @@ const Footer = () => {
       reject(error);
     }
   });
+
+  const handleFooterMenu = (url: string) => {
+    return url.replace("https://regerna.eu", "");
+  }
 
   useEffect(() => {
     if (Object.keys(data).length === 0 && data.constructor === Object) {
@@ -38,6 +43,11 @@ const Footer = () => {
               <div className="left">
                 <img src={data.footer.image.url} alt={data.footer.image.alt} />
                 <p>{data.footer.short_text}</p>
+                <div className="links">
+                  { data.footer.link_pages.map( ( { link }: { [key: string]: any }, index: number ) => (
+                    <Link to={handleFooterMenu(link.url)} key={`link-${index}`}>{link.title}</Link>
+                  ) ) }
+                </div>
               </div>
               <div className="right">
                 <h3>{data.footer.title_right_part}</h3>

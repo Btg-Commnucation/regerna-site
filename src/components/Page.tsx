@@ -7,6 +7,7 @@ import Default from "./Default";
 import Footer from "./Footer";
 import Header from "./Header";
 import Home from "./Home";
+import Legals from "./Legals";
 import Partners from "./Partners";
 
 const Page = () => {
@@ -47,6 +48,7 @@ const Page = () => {
           {data!.template === "template-ambition" && <Ambition page={data!} />}
           {data!.template === "default" && <Default page={data!} />}
           {data!.template === "template-partners" && <Partners page={data!} />}
+          { data!.template === "template-legals" && <Legals page={data!} /> }
         </>
       ) : (
         <article className="ambition">

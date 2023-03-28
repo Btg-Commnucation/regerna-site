@@ -50,6 +50,26 @@ footer {
         font-size: 1.8rem;
       }
     }
+
+    .left .links {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 2rem;
+
+      a {
+        font-size: 1.8rem;
+        text-decoration: none;
+        color: black;
+        font-weight: 600;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+          color: var.$text_blue;
+        }
+      }
+    }
   }
 
   .white {
