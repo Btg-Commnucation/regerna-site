@@ -23,5 +23,9 @@
 
     p {
         font-size: 1.8rem;
+
+        &:not(:last-of-type) {
+            margin-bottom: 1.5rem;
+        }
     }
 }
