@@ -37,6 +37,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: 3rem;
 
     li {
       width: 193px;
@@ -57,7 +58,7 @@
       border-radius: 4px;
       margin-inline: 2.7rem;
 
-      @media screen and (max-width: 486px) {
+      @media screen and (max-width: 500px) {
         display: none;
       }
 
@@ -222,6 +223,10 @@
     text-align: left;
     border-top-left-radius: 20px;
     padding: 3.2rem 2.6rem;
+
+    @media screen and (max-width: 1000px) {
+      min-height: 250px;
+    }
   }
 
   li {
@@ -273,10 +278,18 @@
 
     @media screen and (max-width: 1000px) {
       grid-template-columns: repeat(3, 1fr);
+
+      img {
+        max-width: 200px;
+      }
     }
 
     @media screen and (max-width: 700px) {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 500px) {
+      grid-template-columns: 1fr;
     }
 
     li,
@@ -296,6 +309,10 @@
     padding: 1.1rem 2.5rem;
     text-decoration: none;
     transition: 0.3s ease-in-out;
+
+    @media screen and (max-width: 500px) {
+      margin-top: 3rem;
+    }
 
     &:hover {
       background: var.$text_blue;

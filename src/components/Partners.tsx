@@ -101,6 +101,7 @@ const Partners = ({ page }: { page: { [key: string]: any } }) => {
                 <div
                   className="institut-container"
                   key={`institut-${institutIndex}`}
+                  id={`institut-${institutIndex}`}
                   ref={(el) => {
                     if (el !== null) {
                       institutRef.current[institutIndex] = el;

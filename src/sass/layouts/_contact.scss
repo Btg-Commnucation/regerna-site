@@ -6,8 +6,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 4.2rem;
-    place-items: center;
-    place-content: center;
+    justify-items: center;
+    align-items: start;
     max-width: 75%;
     margin: 0 auto;
 

@@ -179,7 +179,7 @@ const App = () => {
                     {articles.articles
                       .slice(0, 2)
                       .map((article: { [key: string]: any }, index: number) => (
-                        <li>
+                        <li key={`list-${index}`}>
                           <h3>{article.title}</h3>
                           <p className="date">{setDate(article.date)}</p>
                           <div

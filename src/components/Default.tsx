@@ -36,6 +36,16 @@ const Default = ({ page }: { page: { [key: string]: any } }) => {
                   src={page.acf.first_element_image.url}
                   alt={page.acf.first_element_image.alt}
                 />
+                <img
+                  src="/arrow-bi.svg"
+                  alt="Developmental biology to Genetic Engeneering"
+                  className="firstArrow"
+                />
+                <img
+                  src="/arrow-bi.svg"
+                  alt="Developmental biology to GMP mRNA encapsulation"
+                  className="secondArrow"
+                />
               </div>
               <div className="second-element">
                 <h2>{page.acf.second_element_title}</h2>
@@ -47,6 +57,11 @@ const Default = ({ page }: { page: { [key: string]: any } }) => {
                 <img
                   src={page.acf.second_element_image.url}
                   alt={page.acf.second_element_image.alt}
+                />
+                <img
+                  src="/arrow.svg"
+                  alt="Genetic engineering to GMP mRNA encapsulation"
+                  className="thirdArrow"
                 />
               </div>
               <div className="third-element">
@@ -68,6 +83,16 @@ const Default = ({ page }: { page: { [key: string]: any } }) => {
                     __html: page.acf.fourth_element_slogan,
                   }}
                 ></p>
+                <img
+                  src="/arrow-bi.svg"
+                  alt="Genetic engineering to animal studies"
+                  className="fourthArrow"
+                />
+                <img
+                  src="/arrow-bi.svg"
+                  alt="GMP mRNA encapsulation to animal studies"
+                  className="fifthArrow"
+                />
               </div>
             </div>
             <div className="right-part">

@@ -27,12 +27,12 @@ const Header = () => {
       return <Link to={`/`}>{lien.title}</Link>;
     } else if (isExternal(lien.slug)) {
       return (
-        <a href={lien.url} target="_blank" rel="noopener noreferrer">
+        <a href={lien.url} target="_blank" rel="noopener noreferrer" onClick={ () => handleMenu() }>
           {lien.title}
         </a>
       );
     } else {
-      return <Link to={`/${lien.slug}`}>{lien.title}</Link>;
+      return <Link to={`/${lien.slug}`} onClick={() => handleMenu()}>{lien.title}</Link>;
     }
   };
 

@@ -11,6 +11,7 @@
   }
 
   .hero-banner {
+    margin-top: 5.9rem;
     width: 100%;
     height: auto;
     display: flex;
@@ -111,6 +112,36 @@
     align-items: center;
     text-align: center;
     color: white;
+    position: relative;
+
+    .firstArrow, .secondArrow {
+      position: absolute;
+      height: 31px;
+      width: 31px;
+      bottom: -7.5%;
+
+      @media screen and (max-width: 900px) {
+        display: none;
+      }
+    }
+
+    .firstArrow {
+      left: 38%;
+      transform: rotate(35deg);
+
+      @media screen and (max-width: 1750px) {
+        left: 30%;
+      }
+
+      @media screen and (max-width: 1150px) {
+        left: 35%;
+      }
+    }
+
+    .secondArrow {
+      right: 38%;
+      transform: rotate(-35deg);
+    }
 
     @media screen and (max-width: 900px) {
       grid-column: 1;
@@ -154,6 +185,30 @@
     color: white;
     height: 100%;
     width: 100%;
+    position: relative;
+
+    .thirdArrow {
+      width: 31px;
+      height: 31px;
+      position: absolute;
+      right: -10%;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+      transform: rotate(-90deg);
+
+      @media screen and (max-width: 1750px) {
+        right: -12%;
+      }
+
+      @media screen and (max-width: 1150px) {
+        right: -8%;
+      }
+
+      @media screen and (max-width: 900px) {
+        display: none;
+      }
+    }
 
     @media screen and (max-width: 500px) {
       padding-inline: 1rem;
@@ -197,6 +252,36 @@
     color: white;
     width: fit-content;
     max-width: 368px;
+    position: relative;
+
+    .fourthArrow, .fifthArrow {
+      position: absolute;
+      height: 31px;
+      width: 31px;
+      top: -12%;
+
+      @media screen and (max-width: 900px) {
+        display: none;
+      }
+    }
+
+    .fourthArrow {
+      left: 30%;
+      transform: rotate(-30deg);
+
+      @media screen and (max-width: 1750px) {
+        left: 20%;
+      }
+
+      @media screen and (max-width: 1150px) {
+        left: 25%;
+      }
+    }
+
+    .fifthArrow {
+      right: 30%;
+      transform: rotate(30deg);
+    }
 
     @media screen and (max-width: 900px) {
       grid-column: 1;
@@ -268,6 +353,7 @@
 
     .context-content {
       font-size: 1.8rem;
+      margin-left: 3rem;
 
       p {
         margin-top: 2.9rem;
@@ -404,6 +490,7 @@
       justify-content: center;
       align-items: start;
       gap: 2rem;
+      margin-left: 3rem;
 
       p {
         text-align: left;

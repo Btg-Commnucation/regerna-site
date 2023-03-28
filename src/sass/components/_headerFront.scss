@@ -25,6 +25,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 1000px) {
+      margin-block: 2rem;
+
+      a {
+        height: 100%;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      padding-inline: 1rem;
+    }
   }
 
   .slogan-container {
@@ -94,6 +106,11 @@
       padding-inline: 7.8rem;
       padding-block: 2.8rem;
       gap: 7rem;
+
+      .burger-items {
+        position: relative;
+        z-index: 100;
+      }
 
       @media screen and (max-width: 1200px) {
         padding-inline: 4.8rem;

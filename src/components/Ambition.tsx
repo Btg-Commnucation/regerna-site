@@ -85,6 +85,7 @@ const Ambition = ({ page }: { page: { [key: string]: any } }) => {
           <div className="container">
             <h4>{page.acf.title_blue_background}</h4>
             <p
+              className="content"
               dangerouslySetInnerHTML={{
                 __html: page.acf.text_blue_background,
               }}
