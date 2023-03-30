@@ -25,7 +25,7 @@ const Header = () => {
   const NavigationItem = (lien: { [key: string]: string }) => {
     if (lien.slug === "regerna.eu") {
       return <Link to={`/`}>{lien.title}</Link>;
-    } else if (isExternal(lien.slug)) {
+    } else if (lien.title === "Extranet") {
       return (
         <a href={lien.url} target="_blank" rel="noopener noreferrer" onClick={ () => handleMenu() }>
           {lien.title}
