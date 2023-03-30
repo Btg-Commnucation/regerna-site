@@ -16,15 +16,11 @@ const FrontHeader = () => {
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
   const menuItems = useRef<HTMLUListElement | null>(null);
 
-  const isExternal = (url: string) => {
-    const regepx = /^(https?:\/\/)|^(www\.)/i;
-    return regepx.test(url);
-  };
 
   const NavigationItem = (lien: { [key: string]: string }) => {
     if (lien.slug === "regerna.eu") {
       return <Link to={`/`}>{lien.title}</Link>;
-    } else if (isExternal(lien.slug)) {
+    } else if (lien.title === "Extranet") {
       return (
         <a href={lien.url} target="_blank" rel="noopener noreferrer">
           {lien.title}
