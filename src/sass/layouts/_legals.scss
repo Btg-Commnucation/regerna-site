@@ -28,4 +28,33 @@
             margin-bottom: 1.5rem;
         }
     }
+
+    h3 {
+        margin-block: 3rem 1.5rem;
+    }
+
+    ul {
+        margin-left: 4rem;
+    }
+
+    table {
+        margin-block: 2.5rem;
+    }
+
+    thead {
+        background: var.$orange;
+    }
+
+    tr {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
+        gap: 1rem;
+    }
+
+    tbody {
+        tr:last-of-type {
+            margin-top: 0.5rem;
+        }
+    }
 }

@@ -93,6 +93,7 @@ const Partners = ({ page }: { page: { [key: string]: any } }) => {
         </div>
         <section className="image-map-pro">
           <ImageMap />
+          <strong className="below-map__text">Click on the map to discover the REGeRNA Partners, and on the logos for more details about each partner.</strong>
         </section>
         <section className="instituts">
           <div className="container">
