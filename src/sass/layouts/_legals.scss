@@ -39,6 +39,10 @@
 
     table {
         margin-block: 2.5rem;
+
+        td, strong {
+            text-align: center;
+        }
     }
 
     thead {
