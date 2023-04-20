@@ -96,3 +96,23 @@
     align-self: end;
   }
 }
+
+.no-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 5rem;
+
+  h2 {
+    font-size: 3.6rem;
+    color: var.$text_blue;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+}

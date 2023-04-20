@@ -18,7 +18,7 @@ const FrontHeader = () => {
 
 
   const NavigationItem = (lien: { [key: string]: string }) => {
-    if (lien.slug === "regerna.eu") {
+    if (lien.slug === "admin.regerna.eu") {
       return <Link to={`/`}>{lien.title}</Link>;
     } else if (lien.title === "Extranet") {
       return (

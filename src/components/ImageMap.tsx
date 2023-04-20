@@ -30,7 +30,7 @@ const ImageMap = () => {
         <div className="map__container">
           <SvgMap />
           <img
-            src="https://regerna.eu/wp-content/uploads/2022/11/map-rework.svg"
+            src="https://admin.regerna.eu/wp-content/uploads/2022/11/map-rework.svg"
             alt="Map of Europe"
             className="map__image"
           />

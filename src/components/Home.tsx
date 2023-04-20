@@ -85,28 +85,31 @@ const Home = ({ page }: { page: { [key: string]: any } }) => {
         {!isLoading && (
           <section className="container">
             <div className="categories">
-              <ul>
-                <li
-                  className={selectedCategory === "All" ? "selected" : ""}
-                  onClick={() => handleClick("All")}
-                >
-                  All
-                </li>
-                {categoriesLoading ? (
-                  <li>Loading...</li>
-                ) : (
-                  categories.map((category: string, index: number) => (
-                    <li
-                      key={index}
-                      dangerouslySetInnerHTML={{ __html: category }}
-                      className={
-                        selectedCategory === category ? "selected" : ""
-                      }
-                      onClick={() => handleClick(category)}
-                    ></li>
-                  ))
-                )}
-              </ul>
+              {filteredArticles.length > 0 && (
+                <ul>
+                  <li
+                    className={selectedCategory === "All" ? "selected" : ""}
+                    onClick={() => handleClick("All")}
+                  >
+                    All
+                  </li>
+
+                  {categoriesLoading ? (
+                    <li>Loading...</li>
+                  ) : (
+                    categories.map((category: string, index: number) => (
+                      <li
+                        key={index}
+                        dangerouslySetInnerHTML={{ __html: category }}
+                        className={
+                          selectedCategory === category ? "selected" : ""
+                        }
+                        onClick={() => handleClick(category)}
+                      ></li>
+                    ))
+                  )}
+                </ul>
+              )}
             </div>
             {filteredArticles.map((article: { [key: string]: any }) => (
               <div key={article.id} className="article">
@@ -121,6 +124,12 @@ const Home = ({ page }: { page: { [key: string]: any } }) => {
                 </Link>
               </div>
             ))}
+            {filteredArticles.length === 0 && (
+              <div className="no-results">
+                <h2 className="no-news-title">No news available</h2>
+                <p>Come back later !</p>
+              </div>
+            )}
           </section>
         )}
       </article>
