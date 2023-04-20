@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   const NavigationItem = (lien: { [key: string]: string }) => {
-    if (lien.slug === "regerna.eu") {
+    if (lien.slug === "admin.regerna.eu") {
       return <Link to={`/`}>{lien.title}</Link>;
     } else if (lien.title === "Extranet") {
       return (
@@ -41,7 +41,7 @@ const Header = () => {
       const response: Response[] = await ky(
         "better-rest-endpoints/v1/menus/menu-1",
         {
-          prefixUrl: "https://regerna.eu/wp-json/",
+          prefixUrl: "https://admin.regerna.eu/wp-json",
         }
       ).json();
       resolve(response);

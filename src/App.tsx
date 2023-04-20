@@ -23,7 +23,7 @@ const App = () => {
       const response: { [key: string]: any } = await ky(
         "better-rest-endpoints/v1/page/home",
         {
-          prefixUrl: "https://regerna.eu/wp-json/",
+          prefixUrl: "https://admin.regerna.eu/wp-json",
         }
       ).json();
       resolve(response);
@@ -42,7 +42,7 @@ const App = () => {
       const response: { [key: string]: any }[] = await ky(
         "better-rest-endpoints/v1/posts",
         {
-          prefixUrl: "https://regerna.eu/wp-json/",
+          prefixUrl: "https://admin.regerna.eu/wp-json",
         }
       ).json();
       resolve(response);

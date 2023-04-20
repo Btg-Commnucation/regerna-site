@@ -20,7 +20,7 @@ const Article = () => {
   const getArticles = new Promise(async (resolve, reject) => {
     try {
       const response = await ky("better-rest-endpoints/v1/posts", {
-        prefixUrl: "https://regerna.eu/wp-json/",
+        prefixUrl: "https://admin.regerna.eu/wp-json",
       }).json();
       resolve(response);
     } catch (error) {

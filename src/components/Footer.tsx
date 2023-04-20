@@ -12,7 +12,7 @@ const Footer = () => {
   const getFooter = new Promise(async (resolve, reject) => {
     try {
       const response = await ky("better-rest-endpoints/v1/options/acf", {
-        prefixUrl: "https://regerna.eu/wp-json/",
+        prefixUrl: "https://admin.regerna.eu/wp-json",
       }).json();
       resolve(response);
     } catch (error) {
@@ -21,7 +21,7 @@ const Footer = () => {
   });
 
   const handleFooterMenu = (url: string) => {
-    return url.replace("https://regerna.eu", "");
+    return url.replace("https://admin.regerna.eu", "");
   }
 
   useEffect(() => {
