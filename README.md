@@ -1,4 +1,4 @@
-<p align="center"><img src="[/regerna-logo-fat.svg](https://www.regerna.eu/regerna-logo-fat.svg)" alt="Regerna, Leveraging the heart's natural regeneration mechanisms for treating heart failure"></p>
+<p align="center"><img src="https://www.regerna.eu/regerna-logo-fat.svg" alt="Regerna, Leveraging the heart's natural regeneration mechanisms for treating heart failure"></p>
 
 
 # Regerna
