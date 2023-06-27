@@ -22,10 +22,10 @@ const Footer = () => {
 
   const handleFooterMenu = (url: string) => {
     return url.replace("https://admin.regerna.eu", "");
-  }
+  };
 
   useEffect(() => {
-    if (Object.keys(data).length === 0 && data.constructor === Object) {
+    if (Object.keys(data).length === 0 && data?.constructor === Object) {
       getFooter
         .then((response) => dispatch(setFooter(response)))
         .then(() => setIsLoading(false));
@@ -41,19 +41,29 @@ const Footer = () => {
           <div className="container">
             <section className="orange">
               <div className="left">
-                <img src={data.footer.image.url} alt={data.footer.image.alt} />
-                <p>{data.footer.short_text}</p>
+                <img
+                  src={data?.footer.image.url}
+                  alt={data?.footer.image.alt}
+                />
+                <p>{data?.footer.short_text}</p>
                 <div className="links">
-                  { data.footer.link_pages.map( ( { link }: { [key: string]: any }, index: number ) => (
-                    <Link to={handleFooterMenu(link.url)} key={`link-${index}`}>{link.title}</Link>
-                  ) ) }
+                  {data?.footer?.link_pages?.map(
+                    ({ link }: { [key: string]: any }, index: number) => (
+                      <Link
+                        to={handleFooterMenu(link.url)}
+                        key={`link-${index}`}
+                      >
+                        {link.title}
+                      </Link>
+                    )
+                  )}
                 </div>
               </div>
               <div className="right">
-                <h3>{data.footer.title_right_part}</h3>
+                <h3>{data?.footer?.title_right_part}</h3>
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: data.footer.content_right_part,
+                    __html: data?.footer?.content_right_part,
                   }}
                 ></div>
               </div>
@@ -62,7 +72,7 @@ const Footer = () => {
           <section className="white">
             <div
               className="credit"
-              dangerouslySetInnerHTML={{ __html: data.footer.credit }}
+              dangerouslySetInnerHTML={{ __html: data?.footer?.credit }}
             ></div>
           </section>
         </>

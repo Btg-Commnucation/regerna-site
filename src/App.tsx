@@ -28,6 +28,7 @@ const App = () => {
       ).json();
       resolve(response);
     } catch (error) {
+      console.log(`this is the error ${error}`);
       reject(error);
     }
   });
@@ -101,7 +102,7 @@ const App = () => {
               <div className="container">
                 <h2>In numbers</h2>
                 <ul className="numbers">
-                  {data.front.acf.in_numbers.map(
+                  {data?.front.acf.in_numbers.map(
                     (number: { [key: string]: string }, index: number) => (
                       <NumberComponant
                         number={number}
@@ -116,16 +117,16 @@ const App = () => {
             <section className="introduction">
               <div className="background"></div>
               <div className="container">
-                <h2>{data.front.acf.introduction_title}</h2>
+                <h2>{data?.front.acf.introduction_title}</h2>
                 <div className="content-container">
                   <img
-                    src={data.front.acf.introduction_image.url}
-                    alt={data.front.acf.introduction_image.alt}
+                    src={data?.front.acf.introduction_image.url}
+                    alt={data?.front.acf.introduction_image.alt}
                   />
                   <div
                     className="content"
                     dangerouslySetInnerHTML={{
-                      __html: data.front.acf.introduction_content,
+                      __html: data?.front.acf.introduction_content,
                     }}
                   ></div>
                 </div>
@@ -135,7 +136,7 @@ const App = () => {
               <div className="container">
                 <h2>Objectives</h2>
                 <ul className="objectives-list">
-                  {data.front.acf.objectives.map(
+                  {data?.front.acf.objectives.map(
                     (objectif: { [key: string]: string }, index: number) => (
                       <li key={`objectif-${index}`}>
                         <h3>{index + 1}</h3>
@@ -153,7 +154,7 @@ const App = () => {
               <div className="container">
                 <h2>Partners</h2>
                 <ul className="partners-list">
-                  {data.front.acf.partners_logo.map(
+                  {data?.front.acf.partners_logo.map(
                     (
                       partner: { image: { [key: string]: string } },
                       index: number
@@ -176,7 +177,7 @@ const App = () => {
                   <h3>Loading ...</h3>
                 ) : (
                   <ul className="news-list">
-                    {articles.articles
+                    {articles?.articles
                       .slice(0, 2)
                       .map((article: { [key: string]: any }, index: number) => (
                         <li key={`list-${index}`}>

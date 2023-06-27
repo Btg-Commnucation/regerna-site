@@ -16,7 +16,6 @@ const FrontHeader = () => {
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
   const menuItems = useRef<HTMLUListElement | null>(null);
 
-
   const NavigationItem = (lien: { [key: string]: string }) => {
     if (lien.slug === "admin.regerna.eu") {
       return <Link to={`/`}>{lien.title}</Link>;
@@ -86,7 +85,7 @@ const FrontHeader = () => {
             <div className="white"></div>
             <nav className="orange">
               <ul ref={menuItems}>
-                {data.menu.map((item, index) => (
+                {data?.menu.map((item, index) => (
                   <li key={index} className="menu-items">
                     {NavigationItem(item)}
                   </li>
@@ -94,7 +93,11 @@ const FrontHeader = () => {
               </ul>
               <div className="burger-items" onClick={handleMenu}>
                 {screenWidth <= 1000 ? (
-                  <img src="/menu.svg" alt="Menu Responsive" className="menu-responsive" />
+                  <img
+                    src="/menu.svg"
+                    alt="Menu Responsive"
+                    className="menu-responsive"
+                  />
                 ) : (
                   <img
                     src={headerImage}
