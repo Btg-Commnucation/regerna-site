@@ -113,7 +113,7 @@ const Home = ({ page }: { page: { [key: string]: any } }) => {
             </div>
             {filteredArticles.map((article: { [key: string]: any }) => (
               <div key={article.id} className="article">
-                <h2>{article.title}</h2>
+                <h2 dangerouslySetInnerHTML={{ __html: article.title }}></h2>
                 <p className="date">{setDate(article.date)}</p>
                 <div
                   dangerouslySetInnerHTML={{ __html: article.excerpt }}

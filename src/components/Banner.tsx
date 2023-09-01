@@ -5,6 +5,8 @@ const Banner = ({
   image: { [key: string]: string };
   title: string;
 }) => {
+  console.log(title);
+
   return (
     <section
       style={{ background: `url(${image.url}) no-repeat center center` }}
@@ -12,7 +14,7 @@ const Banner = ({
     >
       <div className="linear-gradient"></div>
       <div className="container">
-        <h1>{title}</h1>
+        <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
         {title === "Contact" ? (
           <img
             src="/contact-decoration.svg"
